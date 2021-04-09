@@ -31,8 +31,18 @@ class DemoJoin {
         nt3.t.start();
 
         System.out.println("Thread One is running: " + nt1.t.isAlive());
+
+        // Thread's State
+        System.out.println("Thread One State: " + nt1.t.getState());
+        System.out.println("Thread Two State: " + nt2.t.getState());
+        System.out.println("Thread Third State: " + nt3.t.getState());
+
         System.out.println("Thread Two is running: " + nt2.t.isAlive());
         System.out.println("Thread Three is running: " + nt3.t.isAlive());
+
+        // Setting Thread Two as Max Priority
+        nt2.t.setPriority(Thread.MAX_PRIORITY);
+        System.out.println("Thread two is set to Max Priority and will be processed first: " + nt2.t.getPriority());
 
         try {
             nt1.t.join();
@@ -43,6 +53,12 @@ class DemoJoin {
         }
 
         System.out.println("Thread One is running: " + nt1.t.isAlive());
+
+        // Thread's State
+        System.out.println("Thread One State: " + nt1.t.getState());
+        System.out.println("Thread Two State: " + nt2.t.getState());
+        System.out.println("Thread Third State: " + nt3.t.getState());
+
         System.out.println("Thread Two is running: " + nt2.t.isAlive());
         System.out.println("Thread Three is running: " + nt3.t.isAlive());
 
